@@ -2,8 +2,8 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { Form, ErrorMessage, FormField, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 import { toast } from 'react-hot-toast';
 
 const phoneRegExp =
@@ -18,7 +18,7 @@ const ContactSchema = Yup.object().shape({
 });
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const onSubmit = (valuesFormik, actionsFormik) => {
     if (contacts.find(({ name }) => name === valuesFormik.name)) {
       return toast.error(`${valuesFormik.name} is already in contacts`);

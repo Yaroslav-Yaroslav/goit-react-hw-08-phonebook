@@ -2,19 +2,19 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 import { List, Item, Button } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getContacts,
-  getFilter,
-  getError,
-  getIsLoading,
-} from 'redux/selectors';
+  selectContacts,
+  selectFilter,
+  selectError,
+  selectIsLoading,
+} from 'redux/contacts/selectors';
 
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const filter = useSelector(selectFilter);
 
   const dispatch = useDispatch();
   const filteredContacts = contacts.filter(({ name }) =>
