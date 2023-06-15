@@ -12,7 +12,7 @@ const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .max(30, 'The max number of characters is 30!')
     .required('Enter a name'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(phoneRegExp, 'Phone number is not valid')
     .required('Enter a phone number'),
 });
@@ -24,13 +24,13 @@ export const ContactForm = () => {
       return toast.error(`${valuesFormik.name} is already in contacts`);
     }
     dispatch(addContact(valuesFormik));
-    actionsFormik.resetForm({ valuesFormik: { name: '', phone: '' } });
+    actionsFormik.resetForm({ valuesFormik: { name: '', number: '' } });
   };
   return (
     <Formik
       initialValues={{
         name: '',
-        phone: '',
+        number: '',
       }}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
@@ -45,8 +45,8 @@ export const ContactForm = () => {
         </FormField>
         <FormField>
           Number
-          <Field name="phone" />
-          <ErrorMessage name="phone" component="p" />
+          <Field name="number" />
+          <ErrorMessage name="number" component="p" />
         </FormField>
         <Button type="submit">Add contact</Button>
       </Form>
