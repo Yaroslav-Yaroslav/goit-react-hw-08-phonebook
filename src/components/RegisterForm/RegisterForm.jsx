@@ -1,7 +1,13 @@
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import * as Yup from 'yup';
+import {
+  Form,
+  ErrorMessage,
+  FormField,
+  Button,
+} from 'components/ContactForm/ContactForm.styled';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().required('Enter a name'),
@@ -29,22 +35,22 @@ export const RegisterForm = () => {
       }}
     >
       <Form>
-        <label>
+        <FormField>
           Name
           <Field name="name" />
           <ErrorMessage name="name" component="p" />
-        </label>
-        <label>
+        </FormField>
+        <FormField>
           Email
           <Field name="email" />
           <ErrorMessage name="email" component="p" />
-        </label>
-        <label>
+        </FormField>
+        <FormField>
           Password
-          <Field name="password" />
+          <Field name="password" type='password'/>
           <ErrorMessage name="password" component="p" />
-        </label>
-        <button type="submit">Register</button>
+        </FormField>
+        <Button type="submit">Register</Button>
       </Form>
     </Formik>
   );

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const InputLabel = styled.label`
-  margin-top: 20px;
+  width: 700px;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
   gap: 5px;

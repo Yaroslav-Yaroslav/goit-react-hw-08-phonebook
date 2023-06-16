@@ -1,7 +1,13 @@
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import * as Yup from 'yup';
+import {
+  Form,
+  ErrorMessage,
+  FormField,
+  Button,
+} from 'components/ContactForm/ContactForm.styled';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -28,17 +34,17 @@ export const LoginForm = () => {
       }}
     >
       <Form>
-        <label>
+        <FormField>
           Email
           <Field name="email" />
           <ErrorMessage name="email" component="p" />
-        </label>
-        <label>
+        </FormField>
+        <FormField>
           Password
-          <Field name="password" />
+          <Field name="password" type="password" />
           <ErrorMessage name="password" component="p" />
-        </label>
-        <button type="submit">Log in</button>
+        </FormField>
+        <Button type="submit">Log in</Button>
       </Form>
     </Formik>
   );

@@ -1,4 +1,6 @@
+import { WelcomeTitle } from 'pages/Contacts/Contacts.styled';
+
 const Home = () => {
-  return <div>Home page</div>;
+  return <WelcomeTitle>Welcome to Phonebook!</WelcomeTitle>;
 };
 export default Home;

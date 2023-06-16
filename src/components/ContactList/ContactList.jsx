@@ -1,5 +1,5 @@
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { List, Item, Button } from './ContactList.styled';
+import { List, Item, Button, Info } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContacts,
@@ -24,7 +24,7 @@ export const ContactList = () => {
   return (
     <>
       {filteredContacts.length === 0 && !error && !isLoading ? (
-        <b>No contacts</b>
+        <Info>No contacts</Info>
       ) : null}
       <List>
         {filteredContacts.map(({ name, number, id }) => (

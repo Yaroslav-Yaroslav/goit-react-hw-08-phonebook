@@ -1,9 +1,10 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
+import { MainTitle } from 'pages/Contacts/Contacts.styled';
 
 const Login = () => {
   return (
     <>
-      <div>Log in page</div>
+      <MainTitle>Log in</MainTitle>
       <LoginForm />
     </>
   );

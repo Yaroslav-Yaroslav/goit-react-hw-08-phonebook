@@ -1,9 +1,10 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { MainTitle } from 'pages/Contacts/Contacts.styled';
 
 const Register = () => {
   return (
     <>
-      <div>Register page</div>
+      <MainTitle>Register</MainTitle>
       <RegisterForm />
     </>
   );

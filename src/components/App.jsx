@@ -7,6 +7,7 @@ import { refreshUser } from 'redux/auth/operations';
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
+import Loader from './Loader/Loader';
 const Home = lazy(() => import('../pages/Home/Home'));
 const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 const Register = lazy(() => import('../pages/Register/Register'));
@@ -20,7 +21,7 @@ export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
